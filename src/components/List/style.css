@@ -1,0 +1,12 @@
+.listWrapper {
+    width: 500px;
+}
+
+.listItemStyle {
+    height: 40px;
+    background-color: aliceblue;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: left;
+    padding: 5px;
+}

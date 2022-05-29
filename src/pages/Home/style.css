@@ -1,0 +1,10 @@
+.homepageWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepageChild {
+  flex: 1;
+  height: 100%;
+  overflow: scroll;
+}
