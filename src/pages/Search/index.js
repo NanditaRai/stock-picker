@@ -1,11 +1,11 @@
 import './style.css';
 import SearchBar from '../../components/SearchBar'
-import List from '../../components/List'
 import React, {useEffect, useState, useContext, useCallback, useMemo} from 'react'
 import { StockContext } from '../../context/StockContext';
 import PrevNextButton from '../../components/PreviousNextButtons';
 import filterList from '../../utils/filterList'
 import debounce from '../../utils/debounce'
+const List = React.lazy(() => import('../../components/List'));
 
 const Search = () => {
   const [filteredList, setFilteredList] = useState([])
@@ -33,17 +33,17 @@ const Search = () => {
     }
   }
 
-  const onListItemClick = (symbol) => {
+  const onListItemClick = useCallback((symbol) => {
       selectStock(symbol)
-  }
+  }, [selectStock])
 
-  const onPrevClick = () => {
+  const onPrevClick = useCallback(() => {
     selectPreviousStock()
-  }
+  },[selectPreviousStock])
 
-  const onNextClick = () => {
+  const onNextClick = useCallback(() => {
     selectNextStock()
-  }
+  },[selectNextStock])
 
   return (
     <div className='searchPage'>
